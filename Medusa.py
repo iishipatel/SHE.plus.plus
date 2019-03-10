@@ -7,7 +7,7 @@ family={"mom":"mom","dad":"dad","moth":"mother","fath":"father","sibl":"sibling"
 marr={"husband","boyfriend","girlfriend"}
 work={"colleagu":"colleague","boss":"boss","employ":"employee"}
 ls=LancasterStemmer()
-physical=["hurt","beat","hit"]
+physical=["phys","hurt","beat","hit"]
 sex=["rap","sex","forc","inappropry","touch"]
 money=["money", 'fin','monet']
 society=["socy","friend", "neigbo", "neighb","reput"]
@@ -27,17 +27,17 @@ def token_gen(user_input):
     return cleaner
 
 def report(relation):
-    print("MEDUSA: What is the reason?")
-    reason=token_gen(input('USER: '))
+    print("\nMEDUSA: What is the reason?")
+    reason=token_gen(input('\nUSER: '))
     for r in reason:
         if r in money:
-            print("MEDUSA: There are several NGOs in the country who will provide you with a safer functional home away from your abuser. Don't let the money stop you from escaping the dangerous conditions that you are living in")
+            print("\nMEDUSA: There are several NGOs in the country who will provide you with a safer functional home away from your abuser. Don't let the money stop you from escaping the dangerous conditions that you are living in")
             break
         elif r in family or r in marr:
-            print("MEDUSA: Your "+relation+" either does not understand the pain they are inflicting upon you or they do not care. You deserve a life much better than that. Please don't let such toxic relationships stop you from leading a safer and happier life")
+            print("\nMEDUSA: Your "+relation+" either does not understand the pain they are inflicting upon you or they do not care. You deserve a life much better than that. Please don't let such toxic relationships stop you from leading a safer and happier life")
             break
         elif r in society:
-            print("MEDUSA: Your life and mental health are more important than anyone else's views. Putting up with abuse not only harms you but will make the abuser fearless and they may abuse someone else, and it will be your silence which lead to another ruined life. Nobody wants to live with that guilt")
+            print("\nMEDUSA: Your life and mental health are more important than anyone else's views. Putting up with abuse not only harms you but will make the abuser fearless and they may abuse someone else, and it will be your silence which lead to another ruined life. Nobody wants to live with that guilt")
             break
                 
 def physicalabuse(user_input):
@@ -50,26 +50,26 @@ def physicalabuse(user_input):
         elif i in marr:
             fam_rel=i
             fam=1
-    print("MEDUSA: That is terrible. How old are you?")
-    if int(input("USER: "))>=18:
+    print("\nMEDUSA: That is terrible. How old are you?")
+    if int(input("\nUSER: "))>=18:
         minor=0
     else:
         minor=1
     if(fam==0 ):
-        print("MEDUSA: What is your relation to them?")
-        for i in token_gen(input("USER: ")):
+        print("\nMEDUSA: What is your relation to them?")
+        for i in token_gen(input("\nUSER: ")):
             if i in family:
                 fam_rel=family[i]
-    print("MEDUSA: I am so sorry you have to go through such an ordeal. Your situation comes under domestic abuse.")
+    print("\nMEDUSA: I am so sorry you have to go through such an ordeal. Your situation comes under domestic abuse.")
     if(minor==1):
-        print("MEDUSA: As a minor, you are a victim of child abuse with your "+fam_rel+" being the abuser. You need to speak up right now. Contact the child helpline: 1098 and report your "+fam_rel+" so that the authorities can take you to a safer environment" )
+        print("\nMEDUSA: As a minor, you are a victim of child abuse with your "+fam_rel+" being the abuser. You need to speak up right now. Contact the child helpline: 1098 and report your "+fam_rel+" so that the authorities can take you to a safer environment" )
     else:
-        print("MEDUSA: You are a victim of domestic abuse, a criminal offense under the Constitution of India")
-        print("MEDUSA: Are you ready to report the abuser (yes or no)?")
-        rep=input('USER:')
+        print("\nMEDUSA: You are a victim of domestic abuse, a criminal offense under the Constitution of India")
+        print("\nMEDUSA: Are you ready to report the abuser (yes or no)?")
+        rep=input('\nUSER:')
         if(rep!='yes'):
             report(fam_rel)
-        print("MEDUSA: Report your "+fam_rel+" to the police station immediately at 100. You deserve to live a safer life and the only way to get out of your situation is to put your"+fam_rel+" behind the bars.")
+        print("\nMEDUSA: Report your "+fam_rel+" to the police station immediately at 100. You deserve to live a safer life and the only way to get out of your situation is to put your"+fam_rel+" behind the bars.")
 
 def sexabuse(user_input):
     fam=0
@@ -86,14 +86,14 @@ def sexabuse(user_input):
         elif i in extra:
             fam_rel=i
             ext=1
-    print("MEDUSA: That is horrible. How old are you?")
-    if(int(input("USER: "))>=18):
+    print("\nMEDUSA: That is horrible. How old are you?")
+    if(int(input("\nUSER: "))>=18):
         minor=0
     else:
         minor=1
     if(fam==0 and so==0 and ext==0):
-        print("MEDUSA: How is the abuser related to you?")
-        for i in token_gen(input("USER: ")):
+        print("\nMEDUSA: How is the abuser related to you?")
+        for i in token_gen(input("\nUSER: ")):
             if i in family:
                 fam_rel=family[i]
                 fam=1
@@ -106,41 +106,41 @@ def sexabuse(user_input):
                 ext=1            
     for i in token_gen(user_input):
         if minor==1 and fam==1:
-            print("MEDUSA: You are a victim of Child Sexual Abuse by a family member, which is incest. You need to report your "+fam_rel+" right now. Call the child helpline at 1098")
+            print("\nMEDUSA: You are a victim of Child Sexual Abuse by a family member, which is incest. You need to report your "+fam_rel+" right now. Call the child helpline at 1098")
             break
         if minor==1 and ext==1:
-            print("MEDUSA: You are a victim of Child Sexual Abuse. You need to report your "+fam_rel+" right now. Call the child helpline at 1098")
+            print("\nMEDUSA: You are a victim of Child Sexual Abuse. You need to report your "+fam_rel+" right now. Call the child helpline at 1098")
             break
         elif minor==0 and ext==1:
-            print("MEDUSA: You are a victim of Sexual Abuse. Are you ready to report your "+fam_rel+"?")
-            if(input("USER: ")!='yes'):
+            print("\nMEDUSA: You are a victim of Sexual Abuse. Are you ready to report your "+fam_rel+"?")
+            if(input("\nUSER: ")!='yes'):
                 report(fam_rel)
-            print("MEDUSA: Call the local police station at 100. Report your "+fam_rel+" and get out of the dangerous environment at the earliest")
+            print("\nMEDUSA: Call the local police station at 100. Report your "+fam_rel+" and get out of the dangerous environment at the earliest")
             break
         elif minor==0 and fam==1:
-            print("MEDUSA: You are a victim of Sexual Abuse by a family member, which is incest. Are you ready to report your "+fam_rel+"?")
-            if(input("USER: ")!='yes'):
+            print("\nMEDUSA: You are a victim of Sexual Abuse by a family member, which is incest. Are you ready to report your "+fam_rel+"?")
+            if(input("\nUSER: ")!='yes'):
                 report(fam_rel)
-            print("MEDUSA: Call the local police station at 100. Report your "+fam_rel+" and get out of the dangerous environment at the earliest")
+            print("\nMEDUSA: Call the local police station at 100. Report your "+fam_rel+" and get out of the dangerous environment at the earliest")
             break
         elif so==1:
-            print("MEDUSA: No matter how your relationship is defined, it is never okay to engage in sexual activity without consent. Are you ready to report your "+fam_rel+"?")
-            if(input("USER: ")!='yes'):
+            print("\nMEDUSA: No matter how your relationship is defined, it is never okay to engage in sexual activity without consent. Are you ready to report your "+fam_rel+"?")
+            if(input("\nUSER: ")!='yes'):
                 report(fam_rel)
-            print("MEDUSA: Call the local police station at 100. Report your "+fam_rel+" and get out of the dangerous environment at the earliest")
+            print("\nMEDUSA: Call the local police station at 100. Report your "+fam_rel+" and get out of the dangerous environment at the earliest")
             break
     
-print('MEDUSA: Welcome to Medusa! How may I help you? If you wish to exit type "Bye!" ')
+print('\nMEDUSA: Welcome to Medusa! How may I help you? If you wish to exit type "Bye" ')
 while(True):
     flag=0
-    user_input=input('USER: ')
-    if(user_input=='Bye!'):
+    user_input=input('\nUSER: ')
+    if(user_input.lower()=='bye'):
+        print("\nGoodbye, take care! And remember, stay strong :)")
         break
-    print(token_gen(user_input))
     for j in abuse:
-        if("abus" in token_gen(user_input) and j not in token_gen(user_input)):
-            print("MEDUSA: I'm very sorry to hear about this.\n What kind of abuse is this? Are they physically hurting you or sexually, or emotionally manipulating you?" )
-            user_input=input("USER: ")
+        if("abus" in token_gen(user_input) and "phys" not in token_gen(user_input)):
+            print("\nMEDUSA: I'm very sorry to hear about this.\n What kind of abuse is this? Are they physically hurting you or sexually, or emotionally manipulating you?" )
+            user_input=input("\nUSER: ")
             for i in token_gen(user_input):
                 if i=="phys":
                     physicalabuse(user_input)
@@ -167,3 +167,9 @@ while(True):
         
         if (flag==1):
             break
+    if flag==0:
+        print("\nI am having trouble understanding your problem. For a better experience, tell me the type of abuse you are facing.")
+        continue
+    else:
+        print("\nI hope that you are satisfied with my response. If you don't have any other queries, you can exit by typing 'bye'")
+        continue
