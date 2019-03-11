@@ -185,12 +185,6 @@ def emoabuse(user_input):
     print("MEDUSA: Your mental health is very important. Without a healthy mind you can never truly live a healthy life. Have you ever talked to your "+fam_rel+" regarding their effect on you?")
     if(input("USER: ")=='yes'):
         print("MEDUSA: Very well. Since their attitude hasn't changed, you need to take matters into your own hand.")
-        print("MEDUSA: How would you describe your mental condition?")
-        mental_state=input("USER: ")
-        for token in token_gen(mental_state):
-            if token in mental_issues:
-                psycho_help(mental_state)
-                break
     print("Do you have any further queries?")
     check_abuse(input("USER: ")    )
     
